@@ -27,8 +27,6 @@ int main(int argc, char *argv[])
 
         s=getnameinfo(ifa->ifa_addr,sizeof(struct sockaddr_in),host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
         
-        /* argv[1] 
-         if((strcmp(ifa->ifa_name,"eno1")==0)&&(ifa->ifa_addr->sa_family==AF_INET)) */
         if (argc < 2)
         {
 	  printf("Usage:\n");
@@ -45,8 +43,7 @@ int main(int argc, char *argv[])
                 printf("getnameinfo() failed: %s\n", gai_strerror(s));
                 exit(EXIT_FAILURE);
             }
-            /* printf("\tInterface : <%s>\n",ifa->ifa_name ); */
-	    printf("%s\n", host);
+      	    printf("%s\n", host);
         }
     }
     freeifaddrs(ifaddr);
